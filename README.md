@@ -9,18 +9,18 @@ The application simplifies the data analysis process by transforming raw dataset
 ## Tech Stack
 
 ### Frontend / Dashboard
-*Python
-*Streamlit
+* Python
+* Streamlit
 ### Data Processing
-*Pandas
-*NumPy
+* Pandas
+* NumPy
 
 ### Visualization
-*Plotly
-*Matplotlib
-*Seaborn
-*AI Integration
-*Generative AI API (for automated insights)
+* Plotly
+* Matplotlib
+* Seaborn
+* AI Integration
+* Generative AI API (for automated insights)
 
 <img width="1919" height="853" alt="Screenshot 2026-03-06 225240" src="https://github.com/user-attachments/assets/d733f475-1c02-48b7-8ab1-457453ce6402" />
 

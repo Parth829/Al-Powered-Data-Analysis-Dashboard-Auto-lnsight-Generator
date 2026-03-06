@@ -8,14 +8,14 @@ The application simplifies the data analysis process by transforming raw dataset
 
 ## Tech Stack
 
-# Frontend / Dashboard
+### Frontend / Dashboard
 *Python
 *Streamlit
-# Data Processing
+### Data Processing
 *Pandas
 *NumPy
 
-# Visualization
+### Visualization
 *Plotly
 *Matplotlib
 *Seaborn

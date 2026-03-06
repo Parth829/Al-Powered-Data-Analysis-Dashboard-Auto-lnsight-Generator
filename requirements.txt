@@ -1,0 +1,13 @@
+streamlit
+pandas
+numpy
+scikit-learn
+plotly
+seaborn
+matplotlib
+openpyxl
+langchain
+langchain-google-genai
+python-dotenv
+fpdf
+prophet

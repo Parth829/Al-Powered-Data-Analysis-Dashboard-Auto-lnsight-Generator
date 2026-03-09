@@ -110,7 +110,7 @@ def main():
             st.markdown("Use the power of LLMs to analyze your dataset's specific trends.")
             
             if st.button("Generate AI Insights"):
-                with st.spinner("Analyzing data with Gemini 2.5 Flash..."):
+                with st.spinner("Analyzing data"):
                     ai_insights_list = generate_ai_insights(df_filtered)
                     if ai_insights_list:
                         for ai_insight in ai_insights_list:

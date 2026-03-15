@@ -126,7 +126,12 @@ def main():
             with col_y:
                 y_axis = st.selectbox("Y-Axis", df_filtered.columns, key='custom_y')
             with col_chart:
-                chart_type = st.selectbox("Chart Type", ["Bar", "Line", "Scatter", "BoxPlot"], key='custom_chart')
+                chart_options = [
+                    "Bar", "Line", "Scatter", "BoxPlot", 
+                    "Histogram", "Pie", "Area", "Violin", 
+                    "Density Heatmap", "Strip", "Funnel"
+                ]
+                chart_type = st.selectbox("Chart Type", chart_options, key='custom_chart')
                 
             if st.button("Generate Custom Chart"):
                 
@@ -141,6 +146,24 @@ def main():
                         fig = px.scatter(df_filtered, x=x_axis, y=y_axis, title=f"Scatter Plot: {y_axis} vs {x_axis}")
                     elif chart_type == "BoxPlot":
                         fig = px.box(df_filtered, x=x_axis, y=y_axis, title=f"Box Plot: {y_axis} grouped by {x_axis}")
+                    elif chart_type == "Histogram":
+                        fig = px.histogram(df_filtered, x=x_axis, y=y_axis, title=f"Histogram: {y_axis} vs {x_axis}")
+                    elif chart_type == "Pie":
+                        # Pie chart needs names and values
+                        agg_df = df_filtered.groupby(x_axis)[y_axis].sum().reset_index()
+                        fig = px.pie(agg_df, names=x_axis, values=y_axis, title=f"Pie Chart: {y_axis} by {x_axis}")
+                    elif chart_type == "Area":
+                        agg_df = df_filtered.groupby(x_axis)[y_axis].sum().reset_index()
+                        fig = px.area(agg_df, x=x_axis, y=y_axis, title=f"Area Chart: {y_axis} over {x_axis}")
+                    elif chart_type == "Violin":
+                        fig = px.violin(df_filtered, x=x_axis, y=y_axis, title=f"Violin Plot: {y_axis} grouped by {x_axis}")
+                    elif chart_type == "Density Heatmap":
+                        fig = px.density_heatmap(df_filtered, x=x_axis, y=y_axis, title=f"Density Heatmap: {y_axis} vs {x_axis}")
+                    elif chart_type == "Strip":
+                        fig = px.strip(df_filtered, x=x_axis, y=y_axis, title=f"Strip Plot: {y_axis} grouped by {x_axis}")
+                    elif chart_type == "Funnel":
+                        agg_df = df_filtered.groupby(x_axis)[y_axis].sum().reset_index()
+                        fig = px.funnel(agg_df, x=x_axis, y=y_axis, title=f"Funnel Chart: {y_axis} by {x_axis}")
                         
                     st.plotly_chart(fig, use_container_width=True)
                 except Exception as e:
